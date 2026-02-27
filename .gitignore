@@ -1,0 +1,57 @@
+# ─── Python ───────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
+
+# ─── Virtual environments ─────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ─── IDEs & Editors ───────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ─── Proje Çıktıları (büyük dosyalar – gitignore'da) ──────
+# Yalnızca .gitkeep dosyaları izlenir; üretilen içerik izlenmez.
+çıktılar/vektorler/*.npy
+çıktılar/vektorler/*.json
+çıktılar/vektorler/*.txt
+çıktılar/txt/*.txt
+çıktılar/raporlar/*.html
+!çıktılar/**/.gitkeep
+
+# ─── Kaynak PPT dosyaları (telif hakkı – paylaşılmaz) ─────
+kaynaklar/*.pptx
+kaynaklar/*.ppt
+kaynaklar/*.pdf
+!kaynaklar/.gitkeep
+
+# ─── Ortam değişkenleri & gizli bilgiler ──────────────────
+.env
+.env.*
+secrets.toml
+*.pem
+*.key
+
+# ─── Geçici dosyalar ──────────────────────────────────────
+*.log
+*.tmp
+*.bak
+~$*
+
+# ─── ML model önbelleği (sentence-transformers) ───────────
+~/.cache/huggingface/
+sentence_transformers/

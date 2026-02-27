@@ -1,0 +1,40 @@
+# ════════════════════════════════════════════════════════
+#  PPT → KVKK Analyzer – Yapılandırma Dosyası
+#  Bu dosyayı düzenleyerek varsayılan davranışı değiştirin.
+# ════════════════════════════════════════════════════════
+
+[model]
+# Sentence-transformers modeli (Türkçe + çok dilli önerilir)
+name = "paraphrase-multilingual-MiniLM-L12-v2"
+# Alternatif: "paraphrase-multilingual-mpnet-base-v2" (daha güçlü, daha yavaş)
+normalize_embeddings = true
+
+[chunking]
+# Her parçanın minimum karakter sayısı (çok kısa parçaları atlar)
+min_chars = 40
+# Her parçanın maksimum karakter sayısı
+max_chars = 800
+
+[search]
+# --search komutu için varsayılan sonuç sayısı
+default_top_k = 5
+# Minimum benzerlik eşiği (0.0 – 1.0); altı gösterilmez
+min_similarity = 0.30
+
+[output]
+# Hangi çıktı biçimleri oluşturulsun?
+vectors  = true   # .npy + metadata.json
+txt      = true   # Slayt bazlı .txt dosyaları
+report   = true   # KVKK HTML raporu
+
+[report]
+# Raporu oluştururken mevzuat.gov.tr'den canlı veri çekilsin mi?
+online_fetch = false
+# Çıktı dosyası adı
+output_filename = "KVKK_Analiz_Raporu.html"
+
+[logging]
+# "DEBUG" | "INFO" | "WARNING" | "ERROR"
+level = "INFO"
+# Loglama dosyasına yaz (boş = yalnızca konsol)
+file = ""

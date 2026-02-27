@@ -1,0 +1,58 @@
+name: CI – Lint & Type Check
+
+on:
+  push:
+    branches: ["main", "develop"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  lint:
+    name: Lint & Type Check
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install ruff mypy
+
+      - name: Lint with Ruff
+        run: ruff check src/
+
+      - name: Format check with Ruff
+        run: ruff format --check src/
+
+      - name: Type check with mypy
+        run: mypy src/ --ignore-missing-imports
+        continue-on-error: true   # Mypy uyarıları build'i kırmaz
+
+  import-check:
+    name: Import & Syntax Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+      - run: pip install -r requirements.txt
+      - name: Check syntax
+        run: |
+          python -m py_compile src/ppt_to_vectors.py
+          python -m py_compile src/kvkk_rapor.py
+          echo "✓ Syntax OK"
