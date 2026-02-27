@@ -47,6 +47,12 @@ input/*.pdf
 .env
 .env.*
 secrets.toml
+
+# ─── Test & coverage çıktıları ────────────────────────────
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
 *.pem
 *.key
 
