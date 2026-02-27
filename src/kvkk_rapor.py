@@ -34,9 +34,9 @@ logger = logging.getLogger(__name__)
 # 1 · DİZİN AYARLARI
 # ═══════════════════════════════════════════════════════════════════
 BASE_DIR      = Path(__file__).resolve().parent.parent
-VEKTORLER_DIR = BASE_DIR / "çıktılar" / "vektorler"
-TXT_DIR       = BASE_DIR / "çıktılar" / "txt"
-RAPORLAR_DIR  = BASE_DIR / "çıktılar" / "raporlar"
+VEKTORLER_DIR = BASE_DIR / "output" / "vectors"
+TXT_DIR       = BASE_DIR / "output" / "txt"
+RAPORLAR_DIR  = BASE_DIR / "output" / "reports"
 
 # ═══════════════════════════════════════════════════════════════════
 # 2 · KVKK MADDE VERİ TABANI (Yerel Yedek)

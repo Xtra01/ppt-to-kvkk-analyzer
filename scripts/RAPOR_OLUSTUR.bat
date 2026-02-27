@@ -23,10 +23,10 @@ set /p ONLINE="  İnternet üzerinden mevzuat.gov.tr verisi çekilsin mi? (e/h):
 echo.
 if /i "%ONLINE%"=="e" (
     echo  [→] Rapor oluşturuluyor (resmi kaynak dahil)...
-    python "%~dp0src\kvkk_rapor.py" --online
+    python "%~dp0..\src\kvkk_rapor.py" --online
 ) else (
     echo  [→] Rapor oluşturuluyor (yerel veri)...
-    python "%~dp0src\kvkk_rapor.py"
+    python "%~dp0..\src\kvkk_rapor.py"
 )
 
 echo.
@@ -39,7 +39,7 @@ if %ERRORLEVEL% EQU 0 (
     echo.
     echo  Raporu tarayıcıda açıyor...
     timeout /t 2 /nobreak >nul
-    start "" "%~dp0çıktılar\raporlar\KVKK_Analiz_Raporu.html"
+    start "" "%~dp0..\output\reports\KVKK_Analiz_Raporu.html"
 ) else (
     color 0C
     echo  ✗ HATA OLUŞTU! Önce CALISTIR.bat ile vektörleri oluşturun.

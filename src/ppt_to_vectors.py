@@ -38,9 +38,9 @@ logger = logging.getLogger(__name__)
 
 # ── DİZİN AYARLARI ──────────────────────────────────────────────────────────
 BASE_DIR = Path(__file__).resolve().parent.parent
-KAYNAKLAR_DIR  = BASE_DIR / "kaynaklar"
-CIKTILAR_DIR   = BASE_DIR / "çıktılar" / "vektorler"   # vektör çıktıları
-TXT_CIKTILAR_DIR = BASE_DIR / "çıktılar" / "txt"       # düz metin çıktıları
+KAYNAKLAR_DIR    = BASE_DIR / "input"                 # PPT kaynak dosyaları
+CIKTILAR_DIR     = BASE_DIR / "output" / "vectors"    # vektör çıktıları
+TXT_CIKTILAR_DIR = BASE_DIR / "output" / "txt"        # düz metin çıktıları
 
 # ── MODEL AYARLARI ───────────────────────────────────────────────────────────
 # Türkçe dahil 50+ dil destekleyen hafif ama etkili model

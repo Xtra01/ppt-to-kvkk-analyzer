@@ -1,4 +1,4 @@
-# 🎯 NET VE HIZLI CEVAPLAR
+﻿# 🎯 NET VE HIZLI CEVAPLAR
 
 ## ❓ Soru 1: "Bu Proje Ne Yapar?"
 
@@ -20,7 +20,7 @@
 
 **CEVAP:** Hayır. Bu proje **çıkardığı veri**'leri ver.
 
-**Hangisini ver?** → **`çıktılar/metadata.json`**
+**Hangisini ver?** → **`output/vectors/metadata.json`**
 
 **Neden?**
 - ✅ 1946 metin parçası
@@ -31,7 +31,7 @@
 - ✅ Taşınabilir, portable
 
 **Alternatifleri:**
-- `txt çıktılar/*.txt` → Metin yeterli ise, insan okunabilir
+- `txt output/*.txt` → Metin yeterli ise, insan okunabilir
 - `vectors.npy` → Sadece vektör tabanlı araştırma için (nadir)
 
 ---
@@ -66,7 +66,7 @@
 |-------|-------|----------|
 | metadata.json | 1.5 MB | ⭐⭐⭐⭐⭐ BU'NUN VER |
 | vectors.npy | 3 MB | Vektör araması |
-| txt çıktılar/ | 5 MB | Okuma alışkanlığı |
+| txt output/ | 5 MB | Okuma alışkanlığı |
 | extracted_chunks.json | 500 KB | Fazla (metadata kafi) |
 
 ---
@@ -80,12 +80,12 @@
 ✅ `metadata.json` (yeterli)
 
 ### Eğer insan format isterirse:
-✅ `txt çıktılar/` klasörü (8 dosya)
+✅ `txt output/` klasörü (8 dosya)
 
 ### Eğer tüm dosyayı tek dosyaya koyamıyorsa:
 ✅ TXT dosyalarını birleştir:
 ```bash
-type "txt çıktılar\*.txt" > tum_pptler.txt
+type "output\txt\*.txt" > tum_pptler.txt
 ```
 
 ---
@@ -108,10 +108,10 @@ Başka AI'a vermek isterse?
 
 ## 🚀 Hızlı İşlem Sırası
 
-1. `kaynaklar/` içine PPT koy
+1. `input/` içine PPT koy
 2. `CALISTIR.bat` çift tıkla
 3. İşlem bitmesini bekle (~60-120s)
-4. `çıktılar/metadata.json`'ı AI'ya ver
+4. `output/vectors/metadata.json`'ı AI'ya ver
 5. AI işler, sonuç al
 
 **Seç - Çalıştır - Verisi Al**

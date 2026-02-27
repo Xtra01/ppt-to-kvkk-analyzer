@@ -47,7 +47,7 @@ python src/ppt_to_vectors.py --all --txt   # Vektörleştir + TXT dışa aktar
 python src/kvkk_rapor.py                   # KVKK HTML raporu oluştur
 ```
 
-> **Kodlama bilmiyorsanız:** `CALISTIR.bat` → `RAPOR_OLUSTUR.bat` sırasıyla çift tıklayın.
+> **Kodlama bilmiyorsanız:** `scripts/CALISTIR.bat` → `scripts/RAPOR_OLUSTUR.bat` sırasıyla çift tıklayın.
 
 ### 📁 Proje Yapısı
 
@@ -57,14 +57,16 @@ ppt-to-kvkk-analyzer/
 │   ├── ppt_to_vectors.py   # PPT → vektör + TXT pipeline
 │   └── kvkk_rapor.py       # KVKK analiz & HTML rapor
 ├── docs/                   # Detaylı belgeler
-├── kaynaklar/              # PPT dosyalarınızı buraya koyun
-├── çıktılar/
-│   ├── vektorler/          # vectors.npy, metadata.json
+├── input/                  # PPT dosyalarınızı buraya koyun
+├── output/
+│   ├── vectors/            # vectors.npy, metadata.json
 │   ├── txt/                # Metin dışa aktarımları
-│   └── raporlar/           # HTML raporlar
-├── CALISTIR.bat            # Tek tıkla çalıştır (Windows)
-├── ARA.bat                 # Semantik arama (Windows)
-├── RAPOR_OLUSTUR.bat       # KVKK raporu (Windows)
+│   └── reports/            # HTML raporlar
+├── scripts/                # Çalıştırıcı BAT dosyaları (Windows)
+│   ├── CALISTIR.bat        # Tek tıkla çalıştır
+│   ├── ARA.bat             # Semantik arama
+│   └── RAPOR_OLUSTUR.bat   # KVKK raporu oluştur
+├── tests/                  # Otomatik testler
 ├── config.toml             # Yapılandırma ayarları
 └── requirements.txt
 ```
@@ -141,7 +143,7 @@ git clone https://github.com/Xtra01/ppt-to-kvkk-analyzer.git
 cd ppt-to-kvkk-analyzer
 pip install -r requirements.txt
 
-# Place your PPTX files in kaynaklar/
+# Place your PPTX files in input/
 python src/ppt_to_vectors.py --all --txt
 python src/kvkk_rapor.py
 ```

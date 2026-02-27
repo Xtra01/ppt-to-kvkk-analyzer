@@ -26,18 +26,22 @@ Thumbs.db
 
 # ─── Proje Çıktıları (büyük dosyalar – gitignore'da) ──────
 # Yalnızca .gitkeep dosyaları izlenir; üretilen içerik izlenmez.
-çıktılar/vektorler/*.npy
-çıktılar/vektorler/*.json
-çıktılar/vektorler/*.txt
-çıktılar/txt/*.txt
-çıktılar/raporlar/*.html
-!çıktılar/**/.gitkeep
+output/vectors/*.npy
+output/vectors/*.json
+output/vectors/*.txt
+output/txt/*.txt
+output/reports/*.html
+!output/**/.gitkeep
 
-# ─── Kaynak PPT dosyaları (telif hakkı – paylaşılmaz) ─────
-kaynaklar/*.pptx
-kaynaklar/*.ppt
-kaynaklar/*.pdf
-!kaynaklar/.gitkeep
+# ─── Eski klasör adları (yeniden adlandırıldı – artık izlenmez) ────────
+kaynaklar/
+çıktılar/
+
+# ─── Kaynak PPT dosyaları (telif hakkı – paylaşılmaz) ─────────────────
+input/*.pptx
+input/*.ppt
+input/*.pdf
+!input/.gitkeep
 
 # ─── Ortam değişkenleri & gizli bilgiler ──────────────────
 .env

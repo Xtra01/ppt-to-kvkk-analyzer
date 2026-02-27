@@ -1,4 +1,4 @@
-# 📋 PPT → VEKTÖR + TXT DÖNÜŞTÜRÜCÜ PROJESİ
+﻿# 📋 PPT → VEKTÖR + TXT DÖNÜŞTÜRÜCÜ PROJESİ
 
 ## 📌 Proje Özeti
 
@@ -12,23 +12,23 @@ Bu proje **PowerPoint dosyalarını yapılandırılmış metin ve AI vektörleri
 
 ```
 ppt to text/
-├── kaynaklar/                    ← PPT dosyalarını BU klasöre koy
+├── input/                    ← PPT dosyalarını BU klasöre koy
 │   ├── 1- KVKK Sertifika Programı.pptx
 │   ├── 2- KVKK Sertifika Programı.pptx
 │   └── ... (8 dosya toplamı)
 │
-├── çıktılar/                     ← Vektör + metadata çıkışı
+├── output/                     ← Vektör + metadata çıkışı
 │   ├── vectors.npy               ← Vektör matrisi (1946×384)
 │   ├── metadata.json             ← Tüm metin parçaları + bilgi
 │   ├── extracted_chunks.json     ← Ham metin parçaları
 │   └── ozet_rapor.txt            ← İnsan tarafından okunabilir rapor
 │
-├── txt çıktılar/                 ← TXT dışa aktarma
+├── output/txt/                 ← TXT dışa aktarma
 │   ├── 1- KVKK Sertifika Programı.txt
 │   ├── 2- KVKK Sertifika Programı.txt
 │   └── ... (8 dosya toplamı)
 │
-├── kodlar/
+├── src/
 │   ├── ppt_to_vectors.py         ← Ana uygulama (474 satır)
 │   └── requirements.txt           ← Python bağımlılıkları
 │
@@ -132,7 +132,7 @@ KVKK Kanunu Giriş
 ...
 ```
 
-**Çıktı:** `txt çıktılar/` klasöründe 8 adet `.txt` dosyası
+**Çıktı:** `output/txt/` klasöründe 8 adet `.txt` dosyası
 
 ---
 
@@ -164,14 +164,14 @@ ARAMA: "kişisel verilerin korunması"
 
 ## 📂 ÇIKTI DOSYALARI DETAYLI
 
-### 📊 `çıktılar/vectors.npy`
+### 📊 `output/vectors.npy`
 - **Format:** NumPy binary
 - **Boyut:** 1946 × 384 (çift hassasiyet float)
 - **Boyut (disk):** ~3 MB
 - **İçerik:** Vektör matrisi
 - **Kullanım:** AI arama / benzerlik karşılaştırmalı
 
-### 📄 `çıktılar/metadata.json`
+### 📄 `output/metadata.json`
 - **Format:** Yapılandırılmış JSON
 - **İçerik:**
   - Model adı ve vektör boyutu
@@ -180,13 +180,13 @@ ARAMA: "kişisel verilerin korunması"
 - **Boyut:** ~1.5 MB
 - **Kullanım:** `vectors.npy` ile eşleştirme (hangi vektör hangi metne ait)
 
-### 📋 `çıktılar/extracted_chunks.json`
+### 📋 `output/extracted_chunks.json`
 - **Format:** JSON (metadata.json'ın bir alt kümesi)
 - **İçerik:** Sadece çıkarılan metin parçaları (metadata olmadan)
 - **Boyut:** ~500 KB
 - **Kullanım:** Vektörsüz metin analizi
 
-### 📊 `çıktılar/ozet_rapor.txt`
+### 📊 `output/ozet_rapor.txt`
 - **Format:** İnsan tarafından okunabilir metin
 - **İçerik:**
   - Model bilgisi
@@ -196,7 +196,7 @@ ARAMA: "kişisel verilerin korunması"
   - Çıktı dosyası açıklamaları
 - **Boyut:** ~1 KB
 
-### 📝 `txt çıktılar/*.txt` (8 dosya)
+### 📝 `output/txt/*.txt` (8 dosya)
 - **Format:** UTF-8 metin
 - **İçerik:** Her PPTX dosyasının tüm metni, slayt bazında düzenlenmiş
 - **Toplam:** ~5 MB
@@ -234,20 +234,20 @@ ARAMA: "kişisel verilerin korunması"
 
 ```bash
 # Tüm işlem (çıkarma + vektörleştirme + TXT)
-python kodlar/ppt_to_vectors.py --all --txt
+python src/ppt_to_vectors.py --all --txt
 
 # Sadece metin çıkarma
-python kodlar/ppt_to_vectors.py --extract
+python src/ppt_to_vectors.py --extract
 
 # Sadece vektörleştirme (extracted_chunks.json gerekli)
-python kodlar/ppt_to_vectors.py --vectorize
+python src/ppt_to_vectors.py --vectorize
 
 # Sadece TXT aktarma
-python kodlar/ppt_to_vectors.py --txt
+python src/ppt_to_vectors.py --txt
 
 # Semantik arama
-python kodlar/ppt_to_vectors.py --search "KVKK yaptırımları"
-python kodlar/ppt_to_vectors.py --search "veri sahibi" --top-k 10
+python src/ppt_to_vectors.py --search "KVKK yaptırımları"
+python src/ppt_to_vectors.py --search "veri sahibi" --top-k 10
 ```
 
 ---
@@ -276,7 +276,7 @@ python kodlar/ppt_to_vectors.py --search "veri sahibi" --top-k 10
 **Kullanım:**
 ```python
 import json
-with open('çıktılar/metadata.json', 'r', encoding='utf-8') as f:
+with open('output/metadata.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
     chunks = data['chunks']  # 1946 metin parçası
 ```
@@ -287,7 +287,7 @@ with open('çıktılar/metadata.json', 'r', encoding='utf-8') as f:
 
 ```bash
 # Tüm TXT'leri bir dosyaya birleştir
-type "txt çıktılar\*.txt" > tum_metinler.txt
+type "output\txt\*.txt" > tum_metinler.txt
 ```
 
 **Avantajları:**
@@ -314,10 +314,10 @@ Bazı AI'lar (Claude, GPT-4V) PPT'leri direkt okuyabilir, ama **bu projede çık
 
 | AI Tipi | Verin |
 |---------|-------|
-| **LLM tabanlı (GPT, Claude, Gemini)** | `çıktılar/metadata.json` **veya** `txt çıktılar/*.txt` (birleştirilmiş) |
-| **Diğer Vektör Sistemleri** | `çıktılar/vectors.npy` + `çıktılar/metadata.json` |
-| **Tam Otomatik İşlem** | Tüm dosyalar: `çıktılar/` + `txt çıktılar/` |
-| **Basit Okuma/Tarama** | `txt çıktılar/` klasörü |
+| **LLM tabanlı (GPT, Claude, Gemini)** | `output/metadata.json` **veya** `output/txt/*.txt` (birleştirilmiş) |
+| **Diğer Vektör Sistemleri** | `output/vectors.npy` + `output/metadata.json` |
+| **Tam Otomatik İşlem** | Tüm dosyalar: `output/` + `output/txt/` |
+| **Basit Okuma/Tarama** | `output/txt/` klasörü |
 
 ---
 
@@ -337,12 +337,12 @@ Bazı AI'lar (Claude, GPT-4V) PPT'leri direkt okuyabilir, ama **bu projede çık
 
 ## 🔍 Başa Dönüş Kontrol Listesi
 
-- [ ] `kaynaklar/` içinde PPTX dosyaları var mı?
+- [ ] `input/` içinde PPTX dosyaları var mı?
 - [ ] `CALISTIR.bat` dosyası var mı?
 - [ ] Python 3.10+ yüklü mü? (`python --version`)
 - [ ] Gerekli paketler yüklü mü? (`pip list | findstr "sentence-transformers"`)
 - [ ] İlk çalıştırma 60-120 saniye sürebilir (model cache)
-- [ ] `çıktılar/` ve `txt çıktılar/` klasörleri oluştu mu?
+- [ ] `output/` ve `output/txt/` klasörleri oluştu mu?
 
 ---
 
@@ -351,7 +351,7 @@ Bazı AI'lar (Claude, GPT-4V) PPT'leri direkt okuyabilir, ama **bu projede çık
 | Problem | Çözüm |
 |---------|-------|
 | **"Python bulunamadı"** | Python yükleyin (python.org) |
-| **"ModuleNotFoundError"** | `pip install -r kodlar/requirements.txt` |
+| **"ModuleNotFoundError"** | `pip install -r src/requirements.txt` |
 | **Başında yavaş** | Model ilk kez indiriliyordur (internet bağlantısı gerekli) |
 | **Türkçe karakterler görünmüyor** | Metin editörünü UTF-8'de açın |
 | **Arama sonucu yok** | Önce `CALISTIR.bat` ile vektör oluşturun |

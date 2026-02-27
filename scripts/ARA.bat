@@ -21,7 +21,7 @@ echo  Aranıyor: "%SORGU%"
 echo  Lütfen bekleyin...
 echo.
 
-python "%~dp0src\ppt_to_vectors.py" --search "%SORGU%" --top-k 5
+python "%~dp0..\src\ppt_to_vectors.py" --search "%SORGU%" --top-k 5
 
 echo.
 echo  Yeni arama yapmak için tekrar çalıştırın.
