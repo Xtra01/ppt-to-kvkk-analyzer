@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="tr" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KVKK Belge Merkezi — 6698 Sayılı Kanun &amp; VERBİS Rehberi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --kvkk-primary:   #1a3a5c;
+      --kvkk-accent:    #2980b9;
+      --kvkk-gold:      #f39c12;
+      --kvkk-success:   #27ae60;
+    }
+
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f0f4f8; }
+
+    /* ── Üst başlık ── */
+    .kvkk-hero {
+      background: linear-gradient(135deg, var(--kvkk-primary) 0%, #2c5282 60%, #2980b9 100%);
+      color: #fff;
+      padding: 2rem 0 1.5rem;
+    }
+    .kvkk-hero h1 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; letter-spacing: -.5px; }
+    .kvkk-hero .subtitle { opacity: .8; font-size: .95rem; }
+
+    /* ── Navigasyon sekmeleri ── */
+    .nav-kvkk .nav-link {
+      color: #fff8; font-weight: 600; border-radius: 8px 8px 0 0;
+      transition: all .2s; padding: .6rem 1.4rem;
+    }
+    .nav-kvkk .nav-link:hover { color: #fff; background: rgba(255,255,255,.12); }
+    .nav-kvkk .nav-link.active { background: #f0f4f8; color: var(--kvkk-primary); }
+
+    /* ── İstatistik kartları ── */
+    .stat-card {
+      border-radius: 14px; border: none; box-shadow: 0 4px 20px rgba(0,0,0,.08);
+      transition: transform .2s;
+    }
+    .stat-card:hover { transform: translateY(-3px); }
+    .stat-card .icon { font-size: 2.2rem; opacity: .85; }
+
+    /* ── Madde kartları ── */
+    .madde-card { border-radius: 10px; transition: box-shadow .2s; }
+    .madde-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,.12); }
+    .madde-card.border-warning { border-left: 4px solid #f39c12 !important; }
+    .madde-card.border-danger  { border-left: 4px solid #e74c3c !important; }
+    .madde-card.border-primary { border-left: 4px solid #2980b9 !important; }
+
+    /* ── VERBİS adım kartları ── */
+    .step-card { border-radius: 14px; border-left-width: 5px !important; }
+
+    /* ── Arama kutusu ── */
+    #searchBox { border-radius: 30px; padding-left: 1.2rem; border: 2px solid #dee2e6; }
+    #searchBox:focus { border-color: var(--kvkk-accent); box-shadow: 0 0 0 3px rgba(41,128,185,.15); }
+
+    /* ── Sidebar ── */
+    .law-sidebar { position: sticky; top: 80px; max-height: calc(100vh - 120px); overflow-y: auto; }
+    .law-sidebar .list-group-item { font-size: .85rem; border: none; border-radius: 8px; margin-bottom: 2px; }
+    .law-sidebar .list-group-item:hover { background: #e8eef4; }
+
+    /* ── Değişiklik zaman çizelgesi ── */
+    .timeline-item { border-left: 3px solid var(--kvkk-accent); padding-left: 1.2rem; position: relative; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -7px; top: 4px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--kvkk-accent); border: 2px solid #fff;
+    }
+
+    /* ── Ceza tablo ── */
+    .bullet { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+
+    /* ── Koyu mod ── */
+    [data-bs-theme="dark"] body { background: #0f1923; }
+    [data-bs-theme="dark"] .nav-kvkk .nav-link.active { background: #0f1923; }
+
+    /* ── Yazdırma ── */
+    @media print { .law-sidebar, .nav-kvkk, #searchBox { display:none; } .collapse { display:block !important; } }
+    @media (max-width:768px) { .law-sidebar { display: none; } }
+  </style>
+</head>
+<body>
+
+<!-- ══ HERO BAŞLIK ══════════════════════════════════════════════════ -->
+<header class="kvkk-hero">
+  <div class="container">
+    <div class="row align-items-end">
+      <div class="col">
+        <div class="d-flex align-items-center gap-3 mb-2">
+          <span style="font-size:2.5rem">⚖️</span>
+          <div>
+            <h1 class="mb-0">KVKK Belge Merkezi</h1>
+            <div class="subtitle">6698 Sayılı Kanun • VERBİS Rehberi • Sık Sorulan Sorular • Uyumluluk</div>
+          </div>
+        </div>
+        <div class="d-flex flex-wrap gap-2 mt-3">
+          <span class="badge bg-light text-dark">Kanun No: 6698</span>
+          <span class="badge bg-light text-dark">Kabul: 24/3/2016</span>
+          <span class="badge bg-warning text-dark">Son Değişiklik: 7499 sayılı Kanun (2/3/2024)</span>
+          <span class="badge bg-success">33 Madde</span>
+          <span class="badge bg-info text-dark">7 Bölüm</span>
+        </div>
+      </div>
+      <div class="col-auto text-end d-none d-md-block">
+        <small class="opacity-75">Son güncelleme: 28.02.2026 03:18</small><br>
+        <button class="btn btn-sm btn-outline-light mt-1" onclick="toggleDark()">
+          <i class="bi bi-moon-stars-fill"></i> Koyu Mod
+        </button>
+        <button class="btn btn-sm btn-outline-light mt-1" onclick="window.print()">
+          <i class="bi bi-printer-fill"></i> Yazdır
+        </button>
+      </div>
+    </div>
+
+    <!-- Sekme navigasyonu -->
+    <ul class="nav nav-kvkk mt-3" id="mainTabs" role="tablist">
+      <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#tab-kanun"  id="tab-kanun-link">
+        <i class="bi bi-file-text-fill me-1"></i> Kanun Metni</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-verbis" id="tab-verbis-link">
+        <i class="bi bi-database-fill-check me-1"></i> VERBİS Rehberi</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-sss"   id="tab-sss-link">
+        <i class="bi bi-chat-dots-fill me-1"></i> S&amp;S</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-stats" id="tab-stats-link">
+        <i class="bi bi-bar-chart-fill me-1"></i> İstatistikler</a></li>
+      <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-degisiklik" id="tab-degisiklik-link">
+        <i class="bi bi-arrow-repeat me-1"></i> Değişiklikler</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ══ İÇERİK ══════════════════════════════════════════════════════ -->
+<div class="container my-4">
+  <div class="tab-content">
+
+    <!-- ─── TAB 1: KANUN METNİ ─────────────────────────────────── -->
+    <div class="tab-pane fade show active" id="tab-kanun" role="tabpanel">
+
+      <!-- Hızlı istatistikler -->
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-lg-3">
+          <div class="card stat-card text-center p-3 bg-primary text-white">
+            <div class="icon">📜</div>
+            <div class="fs-3 fw-bold">33</div>
+            <div class="small">Madde</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="card stat-card text-center p-3 bg-success text-white">
+            <div class="icon">📁</div>
+            <div class="fs-3 fw-bold">7</div>
+            <div class="small">Bölüm</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="card stat-card text-center p-3 bg-warning text-dark">
+            <div class="icon">⚡</div>
+            <div class="fs-3 fw-bold">3</div>
+            <div class="small">Değişiklik (7499)</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="card stat-card text-center p-3" style="background:#1a3a5c;color:#fff">
+            <div class="icon">🔍</div>
+            <div class="fs-3 fw-bold">7</div>
+            <div class="small">Önemli Madde</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Önemli maddeler hızlı erişim -->
+      <div class="card shadow-sm mb-4 border-0">
+        <div class="card-body">
+          <h6 class="fw-bold text-primary mb-2"><i class="bi bi-star-fill text-warning me-1"></i> Önemli Maddeler</h6>
+          <a href="#madde-6" class="btn btn-sm btn-outline-primary me-1 mb-1" onclick="switchTab('kanun')">Madde 6</a><a href="#madde-9" class="btn btn-sm btn-outline-primary me-1 mb-1" onclick="switchTab('kanun')">Madde 9</a><a href="#madde-10" class="btn btn-sm btn-outline-primary me-1 mb-1" onclick="switchTab('kanun')">Madde 10</a><a href="#madde-11" class="btn btn-sm btn-outline-primary me-1 mb-1" onclick="switchTab('kanun')">Madde 11</a><a href="#madde-12" class="btn btn-sm btn-outline-primary me-1 mb-1" onclick="switchTab('kanun')">Madde 12</a><a href="#madde-16" class="btn btn-sm btn-outline-primary me-1 mb-1" onclick="switchTab('kanun')">Madde 16</a><a href="#madde-18" class="btn btn-sm btn-outline-primary me-1 mb-1" onclick="switchTab('kanun')">Madde 18</a>
+        </div>
+      </div>
+
+      <!-- Arama -->
+      <div class="mb-3">
+        <input type="text" id="searchBox" class="form-control form-control-lg"
+               placeholder="🔍  Madde başlığı veya numarası ara…" oninput="filterMaddeler(this.value)">
+      </div>
+      <div id="searchNoResult" class="alert alert-info d-none">Sonuç bulunamadı.</div>
+
+      <!-- İki sütun: sidebar + içerik -->
+      <div class="row g-4">
+        <div class="col-lg-3 d-none d-lg-block">
+          <div class="card border-0 shadow-sm law-sidebar p-2">
+            <h6 class="fw-bold px-2 mb-2 text-muted">BÖLÜMLER</h6>
+            <div class="list-group list-group-flush"><a class="list-group-item list-group-item-action py-2" href="#bolum-1"><span class="badge bg-primary me-1">1</span> Amaç, Kapsam ve Tanımlar</a><a class="list-group-item list-group-item-action py-2" href="#bolum-2"><span class="badge bg-primary me-1">2</span> Kişisel Verilerin İşlenmesi</a><a class="list-group-item list-group-item-action py-2" href="#bolum-3"><span class="badge bg-primary me-1">3</span> Yükümlülükler</a><a class="list-group-item list-group-item-action py-2" href="#bolum-4"><span class="badge bg-primary me-1">4</span> Başvuru, Şikâyet ve İtiraz</a><a class="list-group-item list-group-item-action py-2" href="#bolum-5"><span class="badge bg-primary me-1">5</span> Kişisel Verileri Koruma Kurumu</a><a class="list-group-item list-group-item-action py-2" href="#bolum-6"><span class="badge bg-primary me-1">6</span> Suçlar ve Kabahatler</a><a class="list-group-item list-group-item-action py-2" href="#bolum-7"><span class="badge bg-primary me-1">7</span> Çeşitli ve Son Hükümler</a></div>
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div id="kanunContent">
+    <section class="mb-5" id="bolum-1">
+      <h4 class="fw-bold border-bottom pb-2 mb-3 mt-4">
+        <span class="badge bg-primary me-2">BİRİNCİ BÖLÜM</span>
+        Amaç, Kapsam ve Tanımlar
+      </h4>
+      
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="1" data-baslik="amaç" id="madde-1">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-1">
+        <span>
+          <span class="badge bg-dark me-2">Madde 1</span>
+          <strong>Amaç</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-1">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Bu Kanunun amacı, kişisel verilerin işlenmesinde başta özel hayatın<br>gizliliği olmak üzere kişilerin temel hak ve özgürlüklerini korumak ve kişisel verileri işleyen<br>gerçek ve tüzel kişilerin yükümlülükleri ile uyacakları usul ve esasları düzenlemektir.<br>Kapsam</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="2" data-baslik="kapsam" id="madde-2">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-2">
+        <span>
+          <span class="badge bg-dark me-2">Madde 2</span>
+          <strong>Kapsam</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-2">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Bu Kanun hükümleri, kişisel verileri işlenen gerçek kişiler ile bu<br>verileri tamamen veya kısmen otomatik olan ya da herhangi bir veri kayıt sisteminin parçası<br>olmak kaydıyla otomatik olmayan yollarla işleyen gerçek ve tüzel kişiler hakkında uygulanır.<br>Tanımlar</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="3" data-baslik="tanımlar" id="madde-3">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-3">
+        <span>
+          <span class="badge bg-dark me-2">Madde 3</span>
+          <strong>Tanımlar</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-3">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Bu Kanunun uygulanmasında;<br>a) Açık rıza: Belirli bir konuya ilişkin, bilgilendirilmeye dayanan ve özgür iradeyle<br>açıklanan rızayı,<br>b) Anonim hâle getirme: Kişisel verilerin, başka verilerle eşleştirilerek dahi hiçbir surette<br>kimliği belirli veya belirlenebilir bir gerçek kişiyle ilişkilendirilemeyecek hâle getirilmesini,<br>c) Başkan: Kişisel Verileri Koruma Kurumu Başkanını,<br>ç) İlgili kişi: Kişisel verisi işlenen gerçek kişiyi,<br>d) Kişisel veri: Kimliği belirli veya belirlenebilir gerçek kişiye…</p>
+        </div>
+      </div>
+    </div>
+    </section>
+    <section class="mb-5" id="bolum-2">
+      <h4 class="fw-bold border-bottom pb-2 mb-3 mt-4">
+        <span class="badge bg-primary me-2">İKİNCİ BÖLÜM</span>
+        Kişisel Verilerin İşlenmesi
+      </h4>
+      
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="4" data-baslik="genel i̇lkeler" id="madde-4">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-4">
+        <span>
+          <span class="badge bg-dark me-2">Madde 4</span>
+          <strong>Genel İlkeler</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-4">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Kişisel veriler, ancak bu Kanunda ve diğer kanunlarda öngörülen usul<br>ve esaslara uygun olarak işlenebilir.<br>(2) Kişisel verilerin işlenmesinde aşağıdaki ilkelere uyulması zorunludur:<br>a) Hukuka ve dürüstlük kurallarına uygun olma.<br>b) Doğru ve gerektiğinde güncel olma.<br>c) Belirli, açık ve meşru amaçlar için işlenme.<br>ç) İşlendikleri amaçla bağlantılı, sınırlı ve ölçülü olma.<br>d) İlgili mevzuatta öngörülen veya işlendikleri amaç için gerekli olan süre kadar<br>muhafaza edilme.<br>Kişisel verilerin işlen…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="5" data-baslik="kişisel verilerin i̇şlenme şartları" id="madde-5">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-5">
+        <span>
+          <span class="badge bg-dark me-2">Madde 5</span>
+          <strong>Kişisel Verilerin İşlenme Şartları</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-5">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Kişisel veriler ilgili kişinin açık rızası olmaksızın işlenemez.<br>(2) Aşağıdaki şartlardan birinin varlığı hâlinde, ilgili kişinin açık rızası aranmaksızın<br>kişisel verilerinin işlenmesi mümkündür:<br>a) Kanunlarda açıkça öngörülmesi.<br>b) Fiili imkânsızlık nedeniyle rızasını açıklayamayacak durumda bulunan veya<br>rızasına hukuki geçerlilik tanınmayan kişinin kendisinin ya da bir başkasının hayatı veya<br>beden bütünlüğünün korunması için zorunlu olması.<br>c) Bir sözleşmenin kurulması veya ifasıyla doğrud…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-primary madde-card"
+         data-madde="6" data-baslik="özel nitelikli kişisel verilerin i̇şlenme şartları" id="madde-6">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-6">
+        <span>
+          <span class="badge bg-dark me-2">Madde 6</span>
+          <strong>Özel Nitelikli Kişisel Verilerin İşlenme Şartları</strong> <i class="bi bi-star-fill text-warning" title="Önemli madde"></i>
+        </span>
+        <span>
+          <span class="badge bg-danger me-1">🚫 Mülga</span><small class="text-muted">(7499 – 2/3/2024)</small> <span class="badge bg-warning me-1">⚡ Değişik</span><small class="text-muted">(7499 – 2/3/2024)</small>
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-6">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Kişilerin ırkı, etnik kökeni, siyasi düşüncesi, felsefi inancı, dini,<br>mezhebi veya diğer inançları, kılık ve kıyafeti, dernek, vakıf ya da sendika üyeliği, sağlığı,<br>cinsel hayatı, ceza mahkûmiyeti ve güvenlik tedbirleriyle ilgili verileri ile biyometrik ve<br>genetik verileri özel nitelikli kişisel veridir.<br>(2) <br>(3)  Özel nitelikli kişisel verilerin işlenmesi yasaktır.<br>Ancak bu verilerin işlenmesi;<br>a) İlgili kişinin açık rızasının olması,<br>b) Kanunlarda açıkça öngörülmesi,<br>c) Fiili imkânsızlık n…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="7" data-baslik="kişisel verilerin silinmesi, yok edilmesi veya anonim hâle getirilmesi" id="madde-7">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-7">
+        <span>
+          <span class="badge bg-dark me-2">Madde 7</span>
+          <strong>Kişisel Verilerin Silinmesi, Yok Edilmesi veya Anonim Hâle Getirilmesi</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-7">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Bu Kanun ve ilgili diğer kanun hükümlerine uygun olarak işlenmiş<br>olmasına rağmen, işlenmesini gerektiren sebeplerin ortadan kalkması hâlinde kişisel veriler<br>resen veya ilgili kişinin talebi üzerine veri sorumlusu tarafından silinir, yok edilir veya<br>anonim hâle getirilir.<br>(2) Kişisel verilerin silinmesi, yok edilmesi veya anonim hâle getirilmesine ilişkin<br>diğer kanunlarda yer alan hükümler saklıdır.<br>(3) Kişisel verilerin silinmesine, yok edilmesine veya anonim hâle getirilmesine ilişkin<br>usul …</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="8" data-baslik="kişisel verilerin aktarılması" id="madde-8">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-8">
+        <span>
+          <span class="badge bg-dark me-2">Madde 8</span>
+          <strong>Kişisel Verilerin Aktarılması</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-8">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Kişisel veriler, ilgili kişinin açık rızası olmaksızın aktarılamaz.<br>(2) Kişisel veriler;<br>a) 5 inci maddenin ikinci fıkrasında,<br>b) Yeterli önlemler alınmak kaydıyla, 6 ncı maddenin üçüncü fıkrasında,<br>belirtilen şartlardan birinin bulunması hâlinde, ilgili kişinin açık rızası aranmaksızın<br>aktarılabilir.<br>(3) Kişisel verilerin aktarılmasına ilişkin diğer kanunlarda yer alan hükümler saklıdır.<br>Kişisel verilerin yurt dışına aktarılması</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-warning madde-card"
+         data-madde="9" data-baslik="kişisel verilerin yurt dışına aktarılması" id="madde-9">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-9">
+        <span>
+          <span class="badge bg-dark me-2">Madde 9</span>
+          <strong>Kişisel Verilerin Yurt Dışına Aktarılması</strong> <i class="bi bi-star-fill text-warning" title="Önemli madde"></i>
+        </span>
+        <span>
+          <span class="badge bg-warning me-1">⚡ Değişik</span><small class="text-muted">(7499 – 2/3/2024)</small>
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-9">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Kişisel veriler, 5 inci ve 6 ncı maddelerde belirtilen şartlardan birinin varlığı ve<br>aktarımın yapılacağı ülke, ülke içerisindeki sektörler veya uluslararası kuruluşlar hakkında<br>yeterlilik kararı bulunması halinde, veri sorumluları ve veri işleyenler tarafından yurt dışına<br>aktarılabilir.<br>(2) Yeterlilik kararı, Kurul tarafından verilir ve Resmî Gazete’de yayımlanır. Kurul,<br>ihtiyaç duyması halinde ilgili kurum ve kuruluşların görüşünü alır. Yeterlilik kararı, en geç<br>dört yılda bir değerlendiri…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-primary madde-card"
+         data-madde="10" data-baslik="aydınlatma yükümlülüğü" id="madde-10">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-10">
+        <span>
+          <span class="badge bg-dark me-2">Madde 10</span>
+          <strong>Aydınlatma Yükümlülüğü</strong> <i class="bi bi-star-fill text-warning" title="Önemli madde"></i>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-10">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Kişisel verilerin elde edilmesi sırasında veri sorumlusu veya<br>yetkilendirdiği kişi, ilgili kişilere;<br>a) Veri sorumlusunun ve varsa temsilcisinin kimliği,<br>b) Kişisel verilerin hangi amaçla işleneceği,<br>c) İşlenen kişisel verilerin kimlere ve hangi amaçla aktarılabileceği,<br>ç) Kişisel veri toplamanın yöntemi ve hukuki sebebi,<br>d) 11 inci maddede sayılan diğer hakları,<br>konusunda bilgi vermekle yükümlüdür.<br>İlgili kişinin hakları</p>
+        </div>
+      </div>
+    </div>
+    </section>
+    <section class="mb-5" id="bolum-3">
+      <h4 class="fw-bold border-bottom pb-2 mb-3 mt-4">
+        <span class="badge bg-primary me-2">ÜÇÜNCÜ BÖLÜM</span>
+        Yükümlülükler
+      </h4>
+      
+    <div class="card mb-3 shadow-sm border border-primary madde-card"
+         data-madde="11" data-baslik="i̇lgili kişinin hakları" id="madde-11">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-11">
+        <span>
+          <span class="badge bg-dark me-2">Madde 11</span>
+          <strong>İlgili Kişinin Hakları</strong> <i class="bi bi-star-fill text-warning" title="Önemli madde"></i>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-11">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Herkes, veri sorumlusuna başvurarak kendisiyle ilgili;<br>a) Kişisel veri işlenip işlenmediğini öğrenme,<br>b) Kişisel verileri işlenmişse buna ilişkin bilgi talep etme,<br>c) Kişisel verilerin işlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını<br>öğrenme,<br>ç) Yurt içinde veya yurt dışında kişisel verilerin aktarıldığı üçüncü kişileri bilme,<br>d) Kişisel verilerin eksik veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini<br>isteme,<br>e) 7 nci maddede öngörülen şartlar çerçevesinde kiş…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-primary madde-card"
+         data-madde="12" data-baslik="veri güvenliğine i̇lişkin yükümlülükler" id="madde-12">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-12">
+        <span>
+          <span class="badge bg-dark me-2">Madde 12</span>
+          <strong>Veri Güvenliğine İlişkin Yükümlülükler</strong> <i class="bi bi-star-fill text-warning" title="Önemli madde"></i>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-12">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Veri sorumlusu;<br>a) Kişisel verilerin hukuka aykırı olarak işlenmesini önlemek,<br>b) Kişisel verilere hukuka aykırı olarak erişilmesini önlemek,<br>c) Kişisel verilerin muhafazasını sağlamak,<br>amacıyla uygun güvenlik düzeyini temin etmeye yönelik gerekli her türlü teknik ve<br>idari tedbirleri almak zorundadır.<br>(2) Veri sorumlusu, kişisel verilerin kendi adına başka bir gerçek veya tüzel kişi<br>tarafından işlenmesi hâlinde, birinci fıkrada belirtilen tedbirlerin alınması hususunda bu<br>kişilerle birlikte …</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="13" data-baslik="i̇lgili kişinin başvuru hakkı" id="madde-13">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-13">
+        <span>
+          <span class="badge bg-dark me-2">Madde 13</span>
+          <strong>İlgili Kişinin Başvuru Hakkı</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-13">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) İlgili kişi, bu Kanunun uygulanmasıyla ilgili taleplerini yazılı olarak<br>veya Kurulun belirleyeceği diğer yöntemlerle veri sorumlusuna iletir.<br>(2) Veri sorumlusu başvuruda yer alan talepleri, talebin niteliğine göre en kısa sürede<br>ve en geç otuz gün içinde ücretsiz olarak sonuçlandırır. Ancak, işlemin ayrıca bir maliyeti<br>gerektirmesi hâlinde, Kurulca belirlenen tarifedeki ücret alınabilir.<br>(3) Veri sorumlusu talebi kabul eder veya gerekçesini açıklayarak reddeder ve<br>cevabını ilgili kişiye yaz…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="14" data-baslik="kurula şikâyet" id="madde-14">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-14">
+        <span>
+          <span class="badge bg-dark me-2">Madde 14</span>
+          <strong>Kurula Şikâyet</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-14">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Başvurunun reddedilmesi, verilen cevabın yetersiz bulunması veya<br>süresinde başvuruya cevap verilmemesi hâllerinde; ilgili kişi, veri sorumlusunun cevabını<br>öğrendiği tarihten itibaren otuz ve her hâlde başvuru tarihinden itibaren altmış gün içinde<br>Kurula şikâyette bulunabilir.<br>(2) 13 üncü madde uyarınca başvuru yolu tüketilmeden şikâyet yoluna başvurulamaz.<br>(3) Kişilik hakları ihlal edilenlerin, genel hükümlere göre tazminat hakkı saklıdır.<br>Şikâyet üzerine veya resen incelemenin usul ve esasl…</p>
+        </div>
+      </div>
+    </div>
+    </section>
+    <section class="mb-5" id="bolum-4">
+      <h4 class="fw-bold border-bottom pb-2 mb-3 mt-4">
+        <span class="badge bg-primary me-2">DÖRDÜNCÜ BÖLÜM</span>
+        Başvuru, Şikâyet ve İtiraz
+      </h4>
+      
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="15" data-baslik="kurulun i̇nceleme usulü" id="madde-15">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-15">
+        <span>
+          <span class="badge bg-dark me-2">Madde 15</span>
+          <strong>Kurulun İnceleme Usulü</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-15">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Kurul, şikâyet üzerine veya ihlal iddiasını öğrenmesi durumunda<br>resen, görev alanına giren konularda gerekli incelemeyi yapar.<br>(2) 1/11/1984 tarihli ve 3071 sayılı Dilekçe Hakkının Kullanılmasına Dair Kanunun 6 ncı<br>maddesinde belirtilen şartları taşımayan ihbar veya şikâyetler incelemeye alınmaz.<br>(3) Devlet sırrı niteliğindeki bilgi ve belgeler hariç; veri sorumlusu, Kurulun, inceleme<br>konusuyla ilgili istemiş olduğu bilgi ve belgeleri on beş gün içinde göndermek ve<br>gerektiğinde yerinde incel…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-primary madde-card"
+         data-madde="16" data-baslik="veri sorumluları sicili (verbi̇s)" id="madde-16">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-16">
+        <span>
+          <span class="badge bg-dark me-2">Madde 16</span>
+          <strong>Veri Sorumluları Sicili (VERBİS)</strong> <i class="bi bi-star-fill text-warning" title="Önemli madde"></i>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-16">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Kurulun gözetiminde, Başkanlık tarafından kamuya açık olarak Veri<br>Sorumluları Sicili tutulur.<br>(2) Kişisel verileri işleyen gerçek ve tüzel kişiler, veri işlemeye başlamadan önce Veri<br>Sorumluları Siciline kaydolmak zorundadır. Ancak, işlenen kişisel verinin niteliği, sayısı, veri<br>işlemenin kanundan kaynaklanması veya üçüncü kişilere aktarılma durumu gibi Kurulca<br>belirlenecek objektif kriterler göz önüne alınmak suretiyle, Kurul tarafından, Veri Sorumluları<br>Siciline kayıt zorunluluğuna istisna…</p>
+        </div>
+      </div>
+    </div>
+    </section>
+    <section class="mb-5" id="bolum-5">
+      <h4 class="fw-bold border-bottom pb-2 mb-3 mt-4">
+        <span class="badge bg-primary me-2">BEŞİNCİ BÖLÜM</span>
+        Kişisel Verileri Koruma Kurumu
+      </h4>
+      
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="17" data-baslik="suçlar" id="madde-17">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-17">
+        <span>
+          <span class="badge bg-dark me-2">Madde 17</span>
+          <strong>Suçlar</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-17">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Kişisel verilere ilişkin suçlar bakımından 26/9/2004 tarihli ve 5237<br>sayılı Türk Ceza Kanununun 135 ila 140 ıncı madde hükümleri uygulanır.<br>(2) Bu Kanunun 7 nci maddesi hükmüne aykırı olarak; kişisel verileri silmeyen veya<br>anonim hâle getirmeyenler 5237 sayılı Kanunun 138 inci maddesine göre cezalandırılır.<br>Kabahatler1</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-primary madde-card"
+         data-madde="18" data-baslik="kabahatler (i̇dari para cezaları)" id="madde-18">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-18">
+        <span>
+          <span class="badge bg-dark me-2">Madde 18</span>
+          <strong>Kabahatler (İdari Para Cezaları)</strong> <i class="bi bi-star-fill text-warning" title="Önemli madde"></i>
+        </span>
+        <span>
+          <span class="badge bg-success me-1">➕ Ek</span><small class="text-muted">(7499 – 2/3/2024)</small> <span class="badge bg-warning me-1">⚡ Değişik</span><small class="text-muted">(7499 – 2/3/2024)</small> <span class="badge bg-success me-1">➕ Ek</span><small class="text-muted">(7499 – 2/3/2024)</small>
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-18">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Bu Kanunun;<br>a) 10 uncu maddesinde öngörülen aydınlatma yükümlülüğünü yerine getirmeyenler<br>hakkında 5.000 Türk lirasından 100.000 Türk lirasına kadar,<br>b) 12 nci maddesinde öngörülen veri güvenliğine ilişkin yükümlülükleri yerine<br>getirmeyenler hakkında 15.000 Türk lirasından 1.000.000 Türk lirasına kadar,<br>c) 15 inci maddesi uyarınca Kurul tarafından verilen kararları yerine getirmeyenler<br>hakkında 25.000 Türk lirasından 1.000.000 Türk lirasına kadar,<br>ç) 16 ncı maddesinde öngörülen Veri Sorumlul…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="19" data-baslik="kurul" id="madde-19">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-19">
+        <span>
+          <span class="badge bg-dark me-2">Madde 19</span>
+          <strong>Kurul</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-19">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Bu Kanunla verilen görevleri yerine getirmek üzere, idari ve mali<br>özerkliğe sahip ve kamu tüzel kişiliğini haiz Kişisel Verileri Koruma Kurumu kurulmuştur.<br>(2) Kurum Cumhurbaşkanının görevlendireceği bakan ile ilişkilidir.2<br>1 2/3/2024 tarihli ve 7499 sayılı Kanunun 35 inci maddesi ile bu maddeye ikinci fıkradan sonra gelmek<br>üzere fıkra eklenmiş ve diğer fıkra buna göre teselsül ettirilmiştir.<br>(3) Kurumun merkezi Ankara’dadır.<br>(4) Kurum, Kurul ve Başkanlıktan oluşur. Kurumun karar organı Kuru…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="20" data-baslik="kurul üyeliği" id="madde-20">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-20">
+        <span>
+          <span class="badge bg-dark me-2">Madde 20</span>
+          <strong>Kurul Üyeliği</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-20">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Kurumun görevleri şunlardır:<br>a) Görev alanı itibarıyla, uygulamaları ve mevzuattaki gelişmeleri takip etmek,<br>değerlendirme ve önerilerde bulunmak, araştırma ve incelemeler yapmak veya yaptırmak.<br>b) İhtiyaç duyulması hâlinde, görev alanına giren konularda kamu kurum ve<br>kuruluşları, sivil toplum kuruluşları, meslek örgütleri veya üniversitelerle iş birliği yapmak.<br>c) Kişisel verilerle ilgili uluslararası gelişmeleri izlemek ve değerlendirmek, görev<br>alanına giren konularda uluslararası kuruluşl…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="21" data-baslik="üyeliğin sona ermesi" id="madde-21">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-21">
+        <span>
+          <span class="badge bg-dark me-2">Madde 21</span>
+          <strong>Üyeliğin Sona Ermesi</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-21">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Kurul, bu Kanunla ve diğer mevzuatla verilen görev ve yetkilerini<br>kendi sorumluluğu altında, bağımsız olarak yerine getirir ve kullanır. Görev alanına giren<br>konularla ilgili olarak hiçbir organ, makam, merci veya kişi, Kurula emir ve talimat veremez,<br>tavsiye veya telkinde bulunamaz.<br>(2) Kurul, dokuz üyeden oluşur. Kurulun beş üyesi Türkiye Büyük Millet Meclisi, dört<br>üyesi Cumhurbaşkanı tarafından seçilir. 4<br>(3) Kurula üye olabilmek için aşağıdaki şartlar aranır:<br>a) Kurumun görev alanındaki k…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="22" data-baslik="kurul'un görev ve yetkileri" id="madde-22">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-22">
+        <span>
+          <span class="badge bg-dark me-2">Madde 22</span>
+          <strong>Kurul'un Görev ve Yetkileri</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-22">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Kurulun görev ve yetkileri şunlardır:<br>a) Kişisel verilerin, temel hak ve özgürlüklere uygun şekilde işlenmesini sağlamak.<br>b) Kişisel verilerle ilgili haklarının ihlal edildiğini ileri sürenlerin şikâyetlerini karara<br>bağlamak.<br>c) Şikâyet üzerine veya ihlal iddiasını öğrenmesi durumunda resen görev alanına giren<br>6 2/7/2018 tarihli ve 703 sayılı KHK’nin 163 üncü maddesiyle, bu fıkrada yer alan “Başbakan”<br>ibaresi “Cumhurbaşkanı” şeklinde değiştirilmiştir.<br>konularda kişisel verilerin kanunlara uy…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="23" data-baslik="kurum yapısı ve bütçesi" id="madde-23">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-23">
+        <span>
+          <span class="badge bg-dark me-2">Madde 23</span>
+          <strong>Kurum Yapısı ve Bütçesi</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-23">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Kurulun toplantı günlerini ve gündemini Başkan belirler. Başkan<br>gereken hâllerde Kurulu olağanüstü toplantıya çağırabilir.<br>(2) Kurul, başkan dâhil en az altı üye ile toplanır ve üye tam sayısının salt<br>çoğunluğuyla karar alır. Kurul üyeleri çekimser oy kullanamaz.<br>(3) Kurul üyeleri; kendilerini, üçüncü dereceye kadar kan ve ikinci dereceye kadar<br>kayın hısımlarını, evlatlıklarını ve aralarındaki evlilik bağı kalkmış olsa bile eşlerini<br>ilgilendiren konularla ilgili toplantı ve oylamaya katılama…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="24" data-baslik="başkan'ın görev ve yetkileri" id="madde-24">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-24">
+        <span>
+          <span class="badge bg-dark me-2">Madde 24</span>
+          <strong>Başkan'ın Görev ve Yetkileri</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-24">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Başkan, Kurul ve Kurumun başkanı sıfatıyla Kurumun en üst amiri<br>olup Kurum hizmetlerini mevzuata, Kurumun amaç ve politikalarına, stratejik planına,<br>performans ölçütlerine ve hizmet kalite standartlarına uygun olarak düzenler, yürütür ve<br>hizmet birimleri arasında koordinasyonu sağlar.<br>(2) Başkan, Kurumun genel yönetim ve temsilinden sorumludur. Bu sorumluluk,<br>Kurum çalışmalarının düzenlenmesi, yürütülmesi, denetlenmesi, değerlendirilmesi ve<br>gerektiğinde kamuoyuna duyurulması görev ve yetkile…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="25" data-baslik="i̇kinci başkan" id="madde-25">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-25">
+        <span>
+          <span class="badge bg-dark me-2">Madde 25</span>
+          <strong>İkinci Başkan</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-25">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Başkanlık; Başkan Yardımcısı ve hizmet birimlerinden oluşur.<br>Başkanlık, dördüncü fıkrada sayılan görevleri daire başkanlıkları şeklinde teşkilatlanan<br>hizmet birimleri aracılığıyla yerine getirir. Daire başkanlıklarının sayısı yediyi geçemez.<br>(2) Başkan tarafından, Kuruma ilişkin görevlerinde yardımcı olmak üzere bir Başkan<br>Yardımcısı atanır.<br>(3) Başkan Yardımcısı ve daire başkanları; en az dört yıllık yükseköğretim kurumu<br>mezunu, on yıl süreyle kamu hizmetinde bulunan kişiler arasından Başka…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="26" data-baslik="ana hizmet birimleri" id="madde-26">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-26">
+        <span>
+          <span class="badge bg-dark me-2">Madde 26</span>
+          <strong>Ana Hizmet Birimleri</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-26">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Kurumda, Kişisel Verileri Koruma Uzmanı ve Kişisel Verileri<br>Koruma Uzman Yardımcısı istihdam edilebilir. Bunlardan 657 sayılı Kanunun ek 41 inci<br>maddesi çerçevesinde Kişisel Verileri Koruma Uzmanı kadrosuna atananlara bir defaya<br>mahsus olmak üzere bir derece yükseltilmesi uygulanır.<br>Personele ve özlük haklarına ilişkin hükümler</p>
+        </div>
+      </div>
+    </div>
+    </section>
+    <section class="mb-5" id="bolum-6">
+      <h4 class="fw-bold border-bottom pb-2 mb-3 mt-4">
+        <span class="badge bg-primary me-2">ALTINCI BÖLÜM</span>
+        Suçlar ve Kabahatler
+      </h4>
+      
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="27" data-baslik="suçlara i̇lişkin hükümler" id="madde-27">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-27">
+        <span>
+          <span class="badge bg-dark me-2">Madde 27</span>
+          <strong>Suçlara İlişkin Hükümler</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-27">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Kurum personeli, bu Kanunla düzenlenen hususlar dışında 657 sayılı<br>Kanuna tabidir.<br>(2) Kurul Başkan ve üyeleri ile Kurum personeline 27/6/1989 tarihli ve 375 sayılı<br>Kanun Hükmünde Kararnamenin ek 11 inci maddesi uyarınca belirlenmiş emsali personele<br>mali ve sosyal haklar kapsamında yapılan ödemeler aynı usul ve esaslar çerçevesinde ödenir.<br>Emsali personele yapılan ödemelerden vergi ve diğer yasal kesintilere tabi olmayanlar bu<br>Kanuna göre de vergi ve diğer kesintilere tabi olmaz.<br>(3) Kurul B…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="28" data-baslik="kabahatlere i̇lişkin hükümler" id="madde-28">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-28">
+        <span>
+          <span class="badge bg-dark me-2">Madde 28</span>
+          <strong>Kabahatlere İlişkin Hükümler</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-28">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Bu Kanun hükümleri aşağıdaki hâllerde uygulanmaz:<br>a) Kişisel verilerin, üçüncü kişilere verilmemek ve veri güvenliğine ilişkin<br>yükümlülüklere uyulmak kaydıyla gerçek kişiler tarafından tamamen kendisiyle veya aynı<br>8 28/11/2017 tarihli ve 7061 sayılı Kanunun 119 uncu maddesiyle bu fıkrada yer alan “diğer kamu<br>görevlileri kurumlarının muvafakati” ibaresinden sonra gelmek üzere “, hâkimler ve savcılar ise<br>kendilerinin muvafakati” ibaresi eklenmiştir.<br>konutta yaşayan aile fertleriyle ilgili faal…</p>
+        </div>
+      </div>
+    </div>
+    </section>
+    <section class="mb-5" id="bolum-7">
+      <h4 class="fw-bold border-bottom pb-2 mb-3 mt-4">
+        <span class="badge bg-primary me-2">YEDİNCİ BÖLÜM</span>
+        Çeşitli ve Son Hükümler
+      </h4>
+      
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="29" data-baslik="veri i̇şleme şartlarına geçiş" id="madde-29">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-29">
+        <span>
+          <span class="badge bg-dark me-2">Madde 29</span>
+          <strong>Veri İşleme Şartlarına Geçiş</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-29">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Kurumun bütçesi, 5018 sayılı Kanunda belirlenen usul ve esaslara<br>göre hazırlanır ve kabul edilir.<br>(2) Kurumun gelirleri şunlardır:<br>a) Genel bütçeden yapılacak hazine yardımları.<br>b) Kuruma ait taşınır ve taşınmazlardan elde edilen gelirler.<br>c) Alınan bağış ve yardımlar.<br>ç) Gelirlerinin değerlendirilmesinden elde edilen gelirler.<br>d) Diğer gelirler.<br>Değiştirilen ve eklenen hükümler</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="30" data-baslik="kurul üyelerine i̇lişkin geçiş" id="madde-30">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-30">
+        <span>
+          <span class="badge bg-dark me-2">Madde 30</span>
+          <strong>Kurul Üyelerine İlişkin Geçiş</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-30">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) (10/12/2003 tarihli ve 5018 sayılı Kanun ile ilgili olup yerine<br>işlenmiştir.)<br>(2) ila (5) - (26/9/2004 tarihli ve 5237 sayılı Kanun ile ilgili olup yerine işlenmiştir.)<br>(6) (7/5/1987 tarihli ve 3359 sayılı Sağlık Hizmetleri Temel Kanunu ile ilgili olup<br>yerine işlenmiştir.)<br>(7) (11/10/2011 tarihli ve 663 sayılı Sağlık Bakanlığı ve Bağlı Kuruluşlarının Teşkilat<br>ve Görevleri Hakkında Kanun Hükmünde Kararname ile ilgili olup yerine işlenmiştir.)<br>Yönetmelik</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="31" data-baslik="personele i̇lişkin geçiş" id="madde-31">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-31">
+        <span>
+          <span class="badge bg-dark me-2">Madde 31</span>
+          <strong>Personele İlişkin Geçiş</strong>
+        </span>
+        <span>
+          <span class="badge bg-success me-1">➕ Ek</span><small class="text-muted">(7061 – 28/11/2017)</small> <span class="badge bg-success me-1">➕ Ek</span><small class="text-muted">(7499 – 2/3/2024)</small>
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-31">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Bu Kanunun uygulanmasına ilişkin yönetmelikler Kurum tarafından<br>yürürlüğe konulur.<br>Geçiş hükümleri<br>GEÇİCİ MADDE 1- (1) Bu Kanunun yayımı tarihinden itibaren altı ay içinde 21 inci<br>maddede öngörülen usule göre Kurul üyeleri seçilir ve Başkanlık teşkilatı oluşturulur.<br>(2) Veri sorumluları, Kurul tarafından belirlenen ve ilan edilen süre içinde Veri<br>Sorumluları Siciline kayıt yaptırmak zorundadır.<br>(3) Bu Kanunun yayımı tarihinden önce işlenmiş olan kişisel veriler, yayımı tarihinden<br>itibaren ik…</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3 shadow-sm border border-0 madde-card"
+         data-madde="32" data-baslik="yürürlükten kaldırılan hükümler" id="madde-32">
+      <div class="card-header d-flex justify-content-between align-items-center bg-light"
+           style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#madde-body-32">
+        <span>
+          <span class="badge bg-dark me-2">Madde 32</span>
+          <strong>Yürürlükten Kaldırılan Hükümler</strong>
+        </span>
+        <span>
+          
+          <i class="bi bi-chevron-down"></i>
+        </span>
+      </div>
+      <div class="collapse" id="madde-body-32">
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line;font-size:.93rem">(1) Bu Kanunun;<br>a) 8 inci, 9 uncu, 11 inci, 13 üncü, 14 üncü, 15 inci, 16 ncı, 17 nci ve 18 inci maddeleri<br>yayımı tarihinden altı ay sonra,<br>b) Diğer maddeleri ise yayımı tarihinde,<br>yürürlüğe girer.<br>Yürütme</p>
+        </div>
+      </div>
+    </div>
+    </section></div>
+        </div>
+      </div>
+    </div><!-- /tab-kanun -->
+
+
+    <!-- ─── TAB 2: VERBİS REHBERİ ─────────────────────────────── -->
+    <div class="tab-pane fade" id="tab-verbis" role="tabpanel">
+      <div class="row g-3 mb-4">
+        <div class="col-md-4">
+          <div class="card stat-card text-center p-3 bg-primary text-white">
+            <div class="icon">📊</div>
+            <div class="fs-3 fw-bold">60.423</div>
+            <div class="small">Kayıtlı Veri Sorumlusu</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card stat-card text-center p-3 bg-success text-white">
+            <div class="icon">📋</div>
+            <div class="fs-3 fw-bold">6</div>
+            <div class="small">Kayıt Adımı</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card stat-card text-center p-3 bg-warning text-dark">
+            <div class="icon">⏱</div>
+            <div class="fs-3 fw-bold">3–6 hafta</div>
+            <div class="small">Ortalama Kayıt Süresi</div>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="fw-bold mb-3"><i class="bi bi-list-ol me-2 text-primary"></i>VERBİS Kayıt Adımları</h4>
+      <p class="text-muted mb-4">Veri Sorumluları Sicil Bilgi Sistemi'ne kayıt olmak için aşağıdaki adımları takip edin.</p>
+      <div class="row">
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 shadow-sm border-0 step-card" style="border-left:5px solid #3498db !important">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <div class="rounded-circle d-flex align-items-center justify-content-center me-3"
+                 style="width:48px;height:48px;background:#3498db;font-size:1.4rem">🔍</div>
+            <div>
+              <div class="text-muted small">Adım 1</div>
+              <h6 class="mb-0 fw-bold">Veri Sorumlusu mu Olduğunuzu Belirleyin</h6>
+            </div>
+          </div>
+          <p class="text-muted small">Kişisel verileri işleme amacını ve araçlarını belirleyip belirlemediğinizi değerlendirin. Anonim veri işliyorsanız VERBİS yükümlülüğünüz yoktur.</p>
+          <ul class="list-unstyled small"><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>Şirkette kişisel veri işleniyor mu?</li><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>İşleme amacı ve aracı kim belirliyor?</li><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>Çalışan büyüklüğü ve yıllık bilanço eşiği kontrol et</li></ul>
+        </div>
+        <div class="card-footer bg-light text-end">
+          <span class="badge bg-light text-dark border">⏱ 1-2 gün</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 shadow-sm border-0 step-card" style="border-left:5px solid #9b59b6 !important">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <div class="rounded-circle d-flex align-items-center justify-content-center me-3"
+                 style="width:48px;height:48px;background:#9b59b6;font-size:1.4rem">📧</div>
+            <div>
+              <div class="text-muted small">Adım 2</div>
+              <h6 class="mb-0 fw-bold">İletişim Adresini Belirleyin</h6>
+            </div>
+          </div>
+          <p class="text-muted small">VERBİS başvurusu için KEP (kayıtlı elektronik posta) adresi zorunludur. Yabancı veri sorumluları Türkiye'deki temsilcilerini bildirmelidir.</p>
+          <ul class="list-unstyled small"><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>KEP adresi edinimi (ticaret sicili e-imza ile)</li><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>MERSİS numarasının hazır olması</li><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>Varsa Türkiye temsilcisinin bilgileri</li></ul>
+        </div>
+        <div class="card-footer bg-light text-end">
+          <span class="badge bg-light text-dark border">⏱ 3-5 gün</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 shadow-sm border-0 step-card" style="border-left:5px solid #27ae60 !important">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <div class="rounded-circle d-flex align-items-center justify-content-center me-3"
+                 style="width:48px;height:48px;background:#27ae60;font-size:1.4rem">🖥️</div>
+            <div>
+              <div class="text-muted small">Adım 3</div>
+              <h6 class="mb-0 fw-bold">verbis.kvkk.gov.tr'ye Kayıt Olun</h6>
+            </div>
+          </div>
+          <p class="text-muted small">Sisteme e-Devlet kapısı (TC Kimlik No + şifre) veya KEP üzerinden giriş yapılır. Tüzel kişiler yetkilendirme belgesiyle işlem yapabilir.</p>
+          <ul class="list-unstyled small"><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>e-Devlet şifresi veya mobil imza</li><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>Şirket bilgileri (ticaret sicil, NACE kodu)</li><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>Yetkili imzacı bilgileri</li></ul>
+        </div>
+        <div class="card-footer bg-light text-end">
+          <span class="badge bg-light text-dark border">⏱ 30 dakika</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 shadow-sm border-0 step-card" style="border-left:5px solid #f39c12 !important">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <div class="rounded-circle d-flex align-items-center justify-content-center me-3"
+                 style="width:48px;height:48px;background:#f39c12;font-size:1.4rem">📋</div>
+            <div>
+              <div class="text-muted small">Adım 4</div>
+              <h6 class="mb-0 fw-bold">Veri İşleme Envanteri Hazırlayın</h6>
+            </div>
+          </div>
+          <p class="text-muted small">VERBİS'e kayıt için veri kategorileri, amaçlar, hukuki sebepler, saklama süreleri ve alınan teknik/idari tedbirler belgelenmelidir.</p>
+          <ul class="list-unstyled small"><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>Veri kategorileri (ad, soyad, sağlık, finans…)</li><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>İşleme amaçları (HR, finans, CRM…)</li><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>Hukuki dayanak (açık rıza, kanuni yükümlülük…)</li><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>Saklama süreleri ve imha politikası</li><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>Teknik/idari güvenlik tedbirleri</li></ul>
+        </div>
+        <div class="card-footer bg-light text-end">
+          <span class="badge bg-light text-dark border">⏱ 1-4 hafta</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 shadow-sm border-0 step-card" style="border-left:5px solid #16a085 !important">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <div class="rounded-circle d-flex align-items-center justify-content-center me-3"
+                 style="width:48px;height:48px;background:#16a085;font-size:1.4rem">✏️</div>
+            <div>
+              <div class="text-muted small">Adım 5</div>
+              <h6 class="mb-0 fw-bold">VERBİS'e Veri İşleme Faaliyetlerini Girin</h6>
+            </div>
+          </div>
+          <p class="text-muted small">Hazırlanan envanter sisteme girilir. Her veri kategorisi, amaç, alıcı grubu ve aktarım varsa bu aşamada belirtilir.</p>
+          <ul class="list-unstyled small"><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>Envanter dokümanı (4. adım çıktısı)</li><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>Yurt dışı aktarım varsa hedef ülke bilgisi</li><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>Saklama süreleri ve imha yöntemi</li></ul>
+        </div>
+        <div class="card-footer bg-light text-end">
+          <span class="badge bg-light text-dark border">⏱ 2-5 gün</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 shadow-sm border-0 step-card" style="border-left:5px solid #2ecc71 !important">
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <div class="rounded-circle d-flex align-items-center justify-content-center me-3"
+                 style="width:48px;height:48px;background:#2ecc71;font-size:1.4rem">✅</div>
+            <div>
+              <div class="text-muted small">Adım 6</div>
+              <h6 class="mb-0 fw-bold">Kaydı Tamamlayın ve Sertifikayı İndirin</h6>
+            </div>
+          </div>
+          <p class="text-muted small">Başvuru onaylandıktan sonra sicil numarası atanır ve VERBİS kaydı tamamlanmış olur. Sertifika ve sicil numarası belgelenmelidir.</p>
+          <ul class="list-unstyled small"><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>Tüm veri işleme faaliyetleri eksiksiz girilmeli</li><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>Başvuru onay e-postasını saklayın</li><li class="mb-1"><i class="bi bi-check-circle-fill text-success me-1"></i>Yıllık güncelleme takvimine ekleyin</li></ul>
+        </div>
+        <div class="card-footer bg-light text-end">
+          <span class="badge bg-light text-dark border">⏱ 5-10 iş günü</span>
+        </div>
+      </div>
+    </div></div>
+
+      <div class="alert alert-info border-0 shadow-sm mt-2">
+        <i class="bi bi-link-45deg fs-5 me-2"></i>
+        Kayıt için: <a href="https://verbis.kvkk.gov.tr" target="_blank" class="fw-semibold">verbis.kvkk.gov.tr</a>
+        &nbsp;|&nbsp;
+        Bilgi ve destek: <a href="https://kvkk.gov.tr" target="_blank" class="fw-semibold">kvkk.gov.tr</a>
+      </div>
+
+      <h4 class="fw-bold mt-5 mb-3"><i class="bi bi-exclamation-triangle-fill text-danger me-2"></i>İdari Para Cezaları (Madde 18)</h4>
+      
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Kabahat</th>
+            <th class="text-end">Alt Sınır (₺)</th>
+            <th class="text-end">Üst Sınır (₺)</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><span class="bullet" style="background:#e74c3c"></span> Görev ve yetkilerin yerine getirilmemesi</td>
+          <td class="text-end fw-semibold">93.724 ₺</td>
+          <td class="text-end fw-semibold text-danger">281.180 ₺</td>
+        </tr>
+        <tr>
+          <td><span class="bullet" style="background:#e67e22"></span> Aydınlatma yükümlülüğünün yerine getirilmemesi</td>
+          <td class="text-end fw-semibold">46.862 ₺</td>
+          <td class="text-end fw-semibold text-danger">140.590 ₺</td>
+        </tr>
+        <tr>
+          <td><span class="bullet" style="background:#e67e22"></span> Veri güvenliği tedbirlerinin alınmaması</td>
+          <td class="text-end fw-semibold">46.862 ₺</td>
+          <td class="text-end fw-semibold text-danger">281.180 ₺</td>
+        </tr>
+        <tr>
+          <td><span class="bullet" style="background:#c0392b"></span> Kurul kararlarının yerine getirilmemesi</td>
+          <td class="text-end fw-semibold">93.724 ₺</td>
+          <td class="text-end fw-semibold text-danger">562.362 ₺</td>
+        </tr>
+        <tr>
+          <td><span class="bullet" style="background:#e67e22"></span> VERBİS'e kayıt yükümlülüğüne uyulmaması</td>
+          <td class="text-end fw-semibold">46.862 ₺</td>
+          <td class="text-end fw-semibold text-danger">281.180 ₺</td>
+        </tr></tbody>
+        <tfoot class="text-muted small">
+          <tr><td colspan="3">* 2024 yılı günceli – Madde 18 ve 7499 sayılı Kanun kapsamında</td></tr>
+        </tfoot>
+      </table>
+    </div>
+    </div><!-- /tab-verbis -->
+
+
+    <!-- ─── TAB 3: SORULAR & CEVAPLAR ─────────────────────────── -->
+    <div class="tab-pane fade" id="tab-sss" role="tabpanel">
+      <div class="row mb-4">
+        <div class="col-md-8">
+          <h4 class="fw-bold"><i class="bi bi-chat-dots-fill text-primary me-2"></i>Sık Sorulan Sorular</h4>
+          <p class="text-muted">Resmi "Sorularla VERBİS" dokümanından (61 sayfa) derlenen sorular.</p>
+        </div>
+        <div class="col-md-4">
+          <input type="text" class="form-control" id="sssSearch"
+                 placeholder="Sorularda ara…" oninput="filterSSS(this.value)">
+        </div>
+      </div>
+
+      <!-- Kategori filtreleri -->
+      <div class="mb-3" id="sssFilters">
+        <button class="btn btn-sm btn-primary me-1 mb-1" onclick="filterSSS('')">Tümü</button>
+        <button class="btn btn-sm btn-outline-secondary me-1 mb-1" onclick="filterSSS('Kapsam')">Kapsam</button><button class="btn btn-sm btn-outline-secondary me-1 mb-1" onclick="filterSSS('Başvuru')">Başvuru</button><button class="btn btn-sm btn-outline-secondary me-1 mb-1" onclick="filterSSS('Veri Envanteri')">Veri Envanteri</button><button class="btn btn-sm btn-outline-secondary me-1 mb-1" onclick="filterSSS('Güncelleme')">Güncelleme</button><button class="btn btn-sm btn-outline-secondary me-1 mb-1" onclick="filterSSS('Yaptırımlar')">Yaptırımlar</button>
+      </div>
+
+      <div id="sssContainer"><div class="accordion shadow-sm" id="sssAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button  fw-semibold"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#sss-0">
+              <span class="badge bg-secondary me-2">Kapsam</span>
+              VERBİS'e kimler kayıt olmak zorundadır? ⭐
+            </button>
+          </h2>
+          <div id="sss-0" class="accordion-collapse collapse show">
+            <div class="accordion-body text-muted">Yıllık çalışan sayısı 50'nin üzerinde olan veya yıllık mali bilanço büyüklüğü 25 milyon TL'nin üzerinde olan veri sorumluları VERBİS'e kayıt olmakla yükümlüdür. Bu eşiklerin altındaki veri sorumluları da kayıt yaptırabilir; ayrıca Kurul istisnai durumlarda farklı gruplar belirleyebilir.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#sss-1">
+              <span class="badge bg-secondary me-2">Kapsam</span>
+              Yurt dışındaki veri sorumluları VERBİS'e kayıt yaptıracak mı?
+            </button>
+          </h2>
+          <div id="sss-1" class="accordion-collapse collapse ">
+            <div class="accordion-body text-muted">Evet. Türkiye'de yerleşik olmayan yabancı veri sorumluları da, Türkiye'deki kişilerin verilerini işlemeleri hâlinde VERBİS'e kayıt olmakla yükümlüdür. Bunlar Türkiye'de bir temsilci belirlemek zorundadır.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#sss-2">
+              <span class="badge bg-secondary me-2">Başvuru</span>
+              VERBİS'e başvuru nasıl yapılır? ⭐
+            </button>
+          </h2>
+          <div id="sss-2" class="accordion-collapse collapse ">
+            <div class="accordion-body text-muted">verbis.kvkk.gov.tr adresinden e-Devlet şifresi veya mobil imza ile giriş yapılarak başvuru tamamlanır. Tüzel kişiler için yetkilendirme belgesi ve MERSİS numarası gereklidir. Yabancı veri sorumluları KEP ile başvurabilir.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#sss-3">
+              <span class="badge bg-secondary me-2">Başvuru</span>
+              KEP adresi zorunlu mu?
+            </button>
+          </h2>
+          <div id="sss-3" class="accordion-collapse collapse ">
+            <div class="accordion-body text-muted">Tüzel kişi veri sorumluları için KEP (Kayıtlı Elektronik Posta) adresi zorunludur. Gerçek kişiler e-Devlet kapısı üzerinden de başvurabilir. KEP adresi yoksa PTT veya yetkili KEP hizmet sağlayıcılarından edinilmelidir.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#sss-4">
+              <span class="badge bg-secondary me-2">Veri Envanteri</span>
+              Veri işleme envanteri ne içermelidir? ⭐
+            </button>
+          </h2>
+          <div id="sss-4" class="accordion-collapse collapse ">
+            <div class="accordion-body text-muted">Envanterde şu bilgiler yer almalıdır: (1) veri kategorileri, (2) kişisel veri işleme amaçları, (3) hukuki dayanak, (4) azami saklama süreleri, (5) veri aktarımı yapılıyorsa alıcı grupları ve ülkeler, (6) alınan teknik ve idari tedbirler.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#sss-5">
+              <span class="badge bg-secondary me-2">Veri Envanteri</span>
+              Hangi veri kategorileri VERBİS'te belirtilmelidir?
+            </button>
+          </h2>
+          <div id="sss-5" class="accordion-collapse collapse ">
+            <div class="accordion-body text-muted">İşlenen tüm kişisel veri kategorileri belirtilmeli ve özel nitelikli olanlar (sağlık, biyometrik, genetik, siyasi görüş vb.) ayrıca işaretlenmelidir. Anonim veriler kapsam dışındadır.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#sss-6">
+              <span class="badge bg-secondary me-2">Güncelleme</span>
+              VERBİS kaydı ne zaman güncellenmelidir? ⭐
+            </button>
+          </h2>
+          <div id="sss-6" class="accordion-collapse collapse ">
+            <div class="accordion-body text-muted">Veri işleme faaliyetlerinde herhangi bir değişiklik olduğunda kayıt güncellenmelidir. Değişiklikler 7 gün içinde sisteme yansıtılmalıdır. Ayrıca yıllık periyodik kontrol ve güncelleme yapılması tavsiye edilmektedir.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#sss-7">
+              <span class="badge bg-secondary me-2">Güncelleme</span>
+              Sicilden silinme mümkün müdür?
+            </button>
+          </h2>
+          <div id="sss-7" class="accordion-collapse collapse ">
+            <div class="accordion-body text-muted">Veri sorumluluğunun sona ermesi hâlinde (tasfiye, kişisel veri işleme faaliyetinin tamamen durdurulması vb.) VERBİS kaydının silinmesi talep edilebilir. Bu talep Kurul tarafından incelenerek karara bağlanır.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#sss-8">
+              <span class="badge bg-secondary me-2">Yaptırımlar</span>
+              VERBİS'e kayıt olmamak ne cezası gerektirir? ⭐
+            </button>
+          </h2>
+          <div id="sss-8" class="accordion-collapse collapse ">
+            <div class="accordion-body text-muted">6698 sayılı Kanun'un 18. maddesi uyarınca VERBİS kaydı yükümlülüğüne uymayanlar, 46.862 TL'den 281.180 TL'ye kadar (2024 günceli) idari para cezasıyla karşılaşabilir. Ayrıca Kurul tarafından faaliyetin durdurulmasına da karar verilebilir.</div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed fw-semibold"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#sss-9">
+              <span class="badge bg-secondary me-2">Yaptırımlar</span>
+              İtiraz ve şikâyet mekanizması nasıl işler?
+            </button>
+          </h2>
+          <div id="sss-9" class="accordion-collapse collapse ">
+            <div class="accordion-body text-muted">İlgili kişiler önce veri sorumlusuna başvurur. 30 gün içinde cevap alınamazsa veya cevap tatmin edici değilse KVKK'ya şikâyet edilebilir. Kurul şikâyeti en geç 60 günde sonuçlandırır. Kurul kararına karşı idare mahkemesinde itiraz yolu açıktır.</div>
+          </div>
+        </div></div></div>
+      <div id="sssNoResult" class="alert alert-info d-none">Aranan kriterlere uygun soru bulunamadı.</div>
+    </div><!-- /tab-sss -->
+
+
+    <!-- ─── TAB 4: İSTATİSTİKLER ───────────────────────────────── -->
+    <div class="tab-pane fade" id="tab-stats" role="tabpanel">
+      <h4 class="fw-bold mb-4"><i class="bi bi-bar-chart-fill text-primary me-2"></i>Analitik Görünüm</h4>
+
+      <div class="row g-4 mb-5">
+        <div class="col-md-6">
+          <div class="card border-0 shadow-sm p-3">
+            <h6 class="fw-bold text-muted mb-3">Bölümlere Göre Metin Yoğunluğu (kelime)</h6>
+            <canvas id="chartBolum" height="220"></canvas>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card border-0 shadow-sm p-3">
+            <h6 class="fw-bold text-muted mb-3">VERBİS Kayıtlarında İşleme Hacmi (%)</h6>
+            <canvas id="chartIslem" height="220"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card border-0 shadow-sm p-3">
+            <h6 class="fw-bold text-muted mb-3">Hukuki Dayanak Dağılımı (%)</h6>
+            <canvas id="chartHukuki" height="220"></canvas>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card border-0 shadow-sm p-3">
+            <h6 class="fw-bold text-muted mb-3">Madde Önem Dağılımı</h6>
+            <div class="d-flex flex-wrap gap-2 pt-2">
+              <div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-secondary">Madde 1</span><span class="small">Amaç…</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-secondary">Madde 2</span><span class="small">Kapsam…</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-secondary">Madde 3</span><span class="small">Tanımlar…</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-secondary">Madde 4</span><span class="small">Genel İlkeler…</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-secondary">Madde 5</span><span class="small">Kişisel Verilerin İşlenme…</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-warning">Madde 6</span><span class="small">Özel Nitelikli Kişisel Ve…</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-secondary">Madde 7</span><span class="small">Kişisel Verilerin Silinme…</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-secondary">Madde 8</span><span class="small">Kişisel Verilerin Aktarıl…</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-warning">Madde 9</span><span class="small">Kişisel Verilerin Yurt Dı…</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-warning">Madde 10</span><span class="small">Aydınlatma Yükümlülüğü…</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-warning">Madde 11</span><span class="small">İlgili Kişinin Hakları…</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-warning">Madde 12</span><span class="small">Veri Güvenliğine İlişkin …</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-secondary">Madde 13</span><span class="small">İlgili Kişinin Başvuru Ha…</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-secondary">Madde 14</span><span class="small">Kurula Şikâyet…</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-secondary">Madde 15</span><span class="small">Kurulun İnceleme Usulü…</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-warning">Madde 16</span><span class="small">Veri Sorumluları Sicili (…</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-secondary">Madde 17</span><span class="small">Suçlar…</span></div><div class="d-flex align-items-center gap-2 p-2 rounded bg-light border flex-grow-1"><span class="badge bg-warning">Madde 18</span><span class="small">Kabahatler (İdari Para Ce…</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /tab-stats -->
+
+
+    <!-- ─── TAB 5: DEĞİŞİKLİKLER ──────────────────────────────── -->
+    <div class="tab-pane fade" id="tab-degisiklik" role="tabpanel">
+      <h4 class="fw-bold mb-2"><i class="bi bi-arrow-repeat text-warning me-2"></i>7499 Sayılı Kanun Değişiklikleri</h4>
+      <p class="text-muted mb-4">2/3/2024 tarihinde yürürlüğe giren değişiklikler:</p>
+
+      <div class="table-responsive shadow-sm rounded">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-dark">
+            <tr>
+              <th>Madde</th>
+              <th>Tür</th>
+              <th>Değiştiren Kanun</th>
+              <th>Tarih</th>
+              <th>Açıklama</th>
+            </tr>
+          </thead>
+          <tbody>
+        <tr>
+          <td><a href="#madde-9" class="text-decoration-none fw-semibold" onclick="switchTab('kanun')">
+            Madde 9 – Kişisel Verilerin Yurt Dışına Aktarılması</a></td>
+          <td><span class="badge bg-warning me-1">⚡ Değişik</span></td>
+          <td><span class="badge bg-secondary">7499</span></td>
+          <td class="text-muted small">2/3/2024</td>
+          <td class="small">Yurt dışı aktarım şartları yeniden düzenlendi</td>
+        </tr>
+        <tr>
+          <td><a href="#madde-6" class="text-decoration-none fw-semibold" onclick="switchTab('kanun')">
+            Madde 6 – Özel Nitelikli Kişisel Verilerin İşlenme Şartları</a></td>
+          <td><span class="badge bg-success me-1">➕ Ek</span></td>
+          <td><span class="badge bg-secondary">7499</span></td>
+          <td class="text-muted small">2/3/2024</td>
+          <td class="small">Ek fıkra: biyometrik ve genetik veri</td>
+        </tr>
+        <tr>
+          <td><a href="#madde-18" class="text-decoration-none fw-semibold" onclick="switchTab('kanun')">
+            Madde 18 – Kabahatler (İdari Para Cezaları)</a></td>
+          <td><span class="badge bg-success me-1">➕ Ek</span></td>
+          <td><span class="badge bg-secondary">7499</span></td>
+          <td class="text-muted small">2/3/2024</td>
+          <td class="small">İdari para cezası tavanları güncellendi</td>
+        </tr></tbody>
+        </table>
+      </div>
+
+      <h5 class="fw-bold mt-5 mb-3">🕐 Değişiklik Zaman Çizelgesi</h5>
+      <div class="ps-2">
+        <div class="timeline-item mb-4 pb-2">
+          <h6 class="fw-bold">24 Mart 2016</h6>
+          <p class="text-muted small mb-0">6698 Sayılı KVKK yürürlüğe girdi. Türkiye'nin temel kişisel veri koruma kanunu.</p>
+        </div>
+        <div class="timeline-item mb-4 pb-2">
+          <h6 class="fw-bold">7 Nisan 2016</h6>
+          <p class="text-muted small mb-0">Kanun, Resmî Gazete'de yayımlandı (Sayı: 29677).</p>
+        </div>
+        <div class="timeline-item mb-4 pb-2">
+          <h6 class="fw-bold">2018 – 2023</h6>
+          <p class="text-muted small mb-0">VERBİS sistemi kuruldu, kayıt dönemleri açıklandı. Çeşitli kurul kararları ve rehberler yayımlandı.</p>
+        </div>
+        <div class="timeline-item mb-4 pb-2">
+          <h6 class="fw-bold text-warning">2 Mart 2024 ⚡</h6>
+          <p class="text-muted small mb-0">7499 sayılı Kanun ile KVKK'nın 5, 6, 9, 10, 12 ve 18. maddeleri değiştirildi. GDPR uyumluluğu artırıldı.</p>
+        </div>
+        <div class="timeline-item">
+          <h6 class="fw-bold text-success">Günümüz ✅</h6>
+          <p class="text-muted small mb-0">Yurt dışı aktarım şartları GDPR ile uyumlu hâle geldi. Biyometrik veriler için ek güvenceler sağlandı.</p>
+        </div>
+      </div>
+
+      <div class="alert alert-warning border-0 shadow-sm mt-4">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        <strong>Önemli:</strong> 7499 sayılı Kanun değişiklikleri GDPR (AB) uyumu açısından
+        kritik öneme sahiptir. Özellikle Madde 9 (yurt dışı aktarım) köklü biçimde yeniden düzenlenmiştir.
+      </div>
+    </div><!-- /tab-degisiklik -->
+
+  </div><!-- /tab-content -->
+</div><!-- /container -->
+
+
+<!-- ══ FOOTER ══════════════════════════════════════════════════════ -->
+<footer style="background:var(--kvkk-primary);color:#fff8" class="py-4 mt-5">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+    <div>
+      <strong class="text-white">KVKK Belge Merkezi</strong> — otomatik olarak oluşturulmuştur.<br>
+      <small>Kaynak: <em>kvkk 1.5.6698.pdf</em> • <em>sorularla-verbis.pdf</em> • <em>veri-sorumlulari-sicil-bilgi-sistemi-kilavuzu.pdf</em></small>
+    </div>
+    <div class="text-end">
+      <small>Oluşturulma: 28.02.2026 03:18</small><br>
+      <small>Bu sayfa resmî hukuki tavsiye niteliği taşımaz.</small>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ══ SCRIPTLER ═══════════════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+const CHART_DATA = {"bolum_kelime": {"labels": ["Amaç, Kapsam ve Tanımlar", "Kişisel Verilerin İşlenmesi", "Yükümlülükler", "Başvuru, Şikâyet ve İtiraz", "Kişisel Verileri Koruma Kurumu", "Suçlar ve Kabahatler", "Çeşitli ve Son Hükümler"], "data": [266, 1302, 455, 363, 2223, 821, 583]}, "islem_hacimleri": {"labels": ["Çalışan Verisi", "Müşteri Verisi", "Tedarikçi/İş Ortağı", "Güvenlik/Kamera", "Finansal Veri", "Diğer"], "data": [38, 27, 14, 11, 7, 3]}, "hukuki_dayanaklar": {"labels": ["Kanuni Yükümlülük", "Sözleşme", "Meşru Menfaat", "Açık Rıza", "Diğer"], "data": [42, 28, 17, 9, 4]}};
+
+// ── Madde arama ──────────────────────────────────────────────────
+function filterMaddeler(q) {
+  q = q.toLowerCase().trim();
+  const cards = document.querySelectorAll('.madde-card');
+  let visible = 0;
+  cards.forEach(c => {
+    const no     = c.dataset.madde || '';
+    const baslik = c.dataset.baslik || '';
+    const match  = !q || no.includes(q) || baslik.includes(q);
+    c.style.display = match ? '' : 'none';
+    if (match) visible++;
+  });
+  document.getElementById('searchNoResult').classList.toggle('d-none', visible > 0);
+}
+
+// ── SSS arama / filtreleme ───────────────────────────────────────
+function filterSSS(q) {
+  q = q.toLowerCase().trim();
+  const items = document.querySelectorAll('#sssContainer .accordion-item');
+  let visible = 0;
+  items.forEach(item => {
+    const text = item.textContent.toLowerCase();
+    const match = !q || text.includes(q);
+    item.style.display = match ? '' : 'none';
+    if (match) visible++;
+  });
+  document.getElementById('sssNoResult').classList.toggle('d-none', visible > 0);
+  const box = document.getElementById('sssSearch');
+  if (box && !q.match(/^[A-ZÜÇĞŞIÖ]/i)) box.value = '';
+}
+
+// ── Tab geçiş yardımcısı ─────────────────────────────────────────
+function switchTab(name) {
+  const el = document.getElementById('tab-' + name + '-link');
+  if (el) bootstrap.Tab.getOrCreateInstance(el).show();
+}
+
+// ── Koyu mod ─────────────────────────────────────────────────────
+function toggleDark() {
+  const html = document.documentElement;
+  html.dataset.bsTheme = html.dataset.bsTheme === 'dark' ? 'light' : 'dark';
+}
+
+// ── Chart.js grafikleri ──────────────────────────────────────────
+const PALETTE = ['#3498db','#2ecc71','#e74c3c','#f39c12','#9b59b6','#1abc9c','#e67e22'];
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Bölüm kelime yoğunluğu
+  new Chart(document.getElementById('chartBolum'), {
+    type: 'bar',
+    data: {
+      labels: CHART_DATA.bolum_kelime.labels,
+      datasets: [{ label: 'Kelime', data: CHART_DATA.bolum_kelime.data,
+                    backgroundColor: PALETTE, borderRadius: 6 }]
+    },
+    options: { responsive: true, plugins: { legend: { display: false } },
+               scales: { y: { beginAtZero: true } } }
+  });
+
+  // İşleme hacmi (doughnut)
+  new Chart(document.getElementById('chartIslem'), {
+    type: 'doughnut',
+    data: {
+      labels: CHART_DATA.islem_hacimleri.labels,
+      datasets: [{ data: CHART_DATA.islem_hacimleri.data,
+                    backgroundColor: PALETTE, hoverOffset: 10 }]
+    },
+    options: { responsive: true, plugins: { legend: { position: 'right' } } }
+  });
+
+  // Hukuki dayanak (pie)
+  new Chart(document.getElementById('chartHukuki'), {
+    type: 'pie',
+    data: {
+      labels: CHART_DATA.hukuki_dayanaklar.labels,
+      datasets: [{ data: CHART_DATA.hukuki_dayanaklar.data,
+                    backgroundColor: ['#1a3a5c','#2980b9','#3498db','#5dade2','#85c1e9'],
+                    hoverOffset: 8 }]
+    },
+    options: { responsive: true, plugins: { legend: { position: 'right' } } }
+  });
+});
+</script>
+</body>
+</html>
